@@ -1,13 +1,7 @@
 import React, { useState } from "react";
-import { Route, Routes } from "react-router-dom";
-import {
-  CreatePin,
-  Login,
-  Feed,
-  Navbar,
-  PinDetails,
-  Search,
-} from "../components";
+import { Routes, Route } from "react-router-dom";
+
+import { Navbar, Feed, PinDetails, CreatePin, Search } from "../components";
 
 const Pins = ({ user }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -18,7 +12,7 @@ const Pins = ({ user }) => {
         <Navbar
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
-          user={user}
+          user={user && user}
         />
       </div>
       <div className="h-full">
@@ -27,9 +21,12 @@ const Pins = ({ user }) => {
           <Route path="/category/:categoryId" element={<Feed />} />
           <Route
             path="/pin-detail/:pinId"
-            element={<PinDetails user={user} />}
+            element={<PinDetails user={user && user} />}
           />
-          <Route path="/create-pin" element={<CreatePin user={user} />} />
+          <Route
+            path="/create-pin"
+            element={<CreatePin user={user && user} />}
+          />
           <Route
             path="/search"
             element={

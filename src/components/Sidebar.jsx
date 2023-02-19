@@ -8,7 +8,7 @@ const Sidebar = ({ user, closeToggle }) => {
   const handleCloseSidebar = () => {
     if (closeToggle) closeToggle(false);
   };
-  console.log("🚀 ~ file: Sidebar.jsx:8 ~ Sidebar ~ user", user);
+  // console.log("🚀 ~ file: Sidebar.jsx:8 ~ Sidebar ~ user", user);
 
   const isNotActiveStyle =
     "flex items-center px-5 gap-3 text-gray-500 hover:text-black transition duration-300 ease-in-out capitalize";
